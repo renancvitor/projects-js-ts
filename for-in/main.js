@@ -11,8 +11,6 @@ for (let i in pessoa) {
 console.log(pessoa.nome); // primeira forma de acessar o nome num array
 console.log(pessoa['nome']); // segunda forma de acessar o nome num array
 
-
-
 // const frutas = ['Pera', 'Maçã', 'Uva'];
 
 // for (let i = 0; i < frutas.length; i ++) {
