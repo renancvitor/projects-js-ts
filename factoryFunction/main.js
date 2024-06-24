@@ -16,8 +16,6 @@ function criaPessoa(nome, sobrenome) {
         sobrenome: {value: sobrenome}
     });
 
-    // Object.create(pessoaPrototype);
-    // pessoaPrototype.prototype.constructor = pessoaPrototype;
 }
     
     
