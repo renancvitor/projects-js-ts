@@ -84,7 +84,7 @@ class ValidaFormulario {
     }
 
     validaCPF(campo) {
-        const cpf = new ValidaCPF(campo.value);
+        const cpf = new ValidaCPF(campo.value); // É bem aqui onde a vlass ValidaCPF é chamada através do arquivo validacpf
 
         if (!cpf.valida()) {
             this.createError(campo, 'CPF inválido.');
