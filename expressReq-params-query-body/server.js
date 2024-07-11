@@ -3,7 +3,7 @@ const app = express();
 
 // params === /profiles/id123987
 // query === /?chave1=valor1&chave2=valor2
-// body === <- deve ser tratado no POST ou PUT e deve ter a declaração app.use com extend:true
+// body === / <- deve ser tratado no POST ou PUT e deve ter a declaração app.use com extends:true
 
 app.get('/', (req, res) => {
     res.send(`
