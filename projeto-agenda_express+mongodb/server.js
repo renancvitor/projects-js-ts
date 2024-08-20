@@ -4,9 +4,13 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.CONNECTIONSTRING)
+mongoose.connect(process.env.CONNECTIONSTRING, 
+    {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    })
     .then(() => {
-        app.emit('Pronto!');
+        app.emit('pronto');
     })
     .catch(e => console.log(e));
 
@@ -21,10 +25,6 @@ const helmet = require('helmet');
 const csrf = require('csurf');
 
 const { middlewareGlobal, checkCsrfError, csrfMiddleware } = require('./src/middlewares/middleware');
-
-// params === /profiles/id123987
-// query === /?chave1=valor1&chave2=valor2
-// body === <- deve ser tratado no POST ou PUT e deve ter a declaração app.use com extend:true
 
 app.use(helmet());
 
@@ -57,10 +57,9 @@ app.use(checkCsrfError);
 app.use(csrfMiddleware);
 app.use(routes);
 
-app.on('Pronto!', () => {
+app.on('pronto', () => {
     app.listen(3000, () => {
         console.log('Acessar http://localhost:3000');
         console.log('Servidor executando na porta 3000');
     });
 });
-
