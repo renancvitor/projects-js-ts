@@ -25,7 +25,7 @@ Contato.buscaPorId = async function(id) {
 
 Contato.prototype.register = async function() {
     this.valida();
-    if(this.errors.length > 0) return;
+    if (this.errors.length > 0) return;
     this.contato = await ContatoModel.create(this.body);
 };
 
@@ -52,6 +52,13 @@ Contato.prototype.cleanUp = function() { // Garante que tudo que esteja no body 
         email: this.body.email,
         telefone: this.body.telefone
     };
+};
+
+Contato.prototype.edit = async function(id) {
+    if(typeof id !== 'string') return;
+    this.valida();
+    if(this.errors.length > 0) return;
+    this.contato = await ContatoModel.findByIdAndUpdate(id, this.body, { new: true });
 };
 
 module.exports = Contato;
