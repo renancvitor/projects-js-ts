@@ -23,7 +23,7 @@ Contato.prototype.register = async function() {
     this.contato = await ContatoModel.create(this.body);
 };
 
-Contato.prototype.valida = function() { // Checa se o e-mail é válido; checa se a senha tem de 3 à 50 chars.
+Contato.prototype.valida = function() {
     this.cleanUp();
     // Checando e-mail
     if(this.body.email && !validator.isEmail(this.body.email)) this.errors.push('E-mail inválido.');
