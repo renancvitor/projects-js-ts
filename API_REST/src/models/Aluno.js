@@ -1,7 +1,7 @@
 import Sequelize, { Model } from 'sequelize';
 
 export default class Aluno extends Model {
-  static Init(sequelize) {
+  static init(sequelize) {
     super.init({
       nome: Sequelize.STRING,
       sobrenome: Sequelize.STRING,
