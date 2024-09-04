@@ -10,7 +10,7 @@ const router = new Router();
 // router.get('/:id', userController.show); // Lista usuário
 
 // Função real
-router.post('/', userController.store);
+router.post('/',loginRequired, userController.store);
 router.put('/:id', loginRequired, userController.update);
 router.delete('/:id', loginRequired, userController.delete);
 
