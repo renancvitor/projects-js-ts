@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Navigate, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-export default function MyRoute({ element: Element, isClosed, ...rest }) {
+function MyRoute({ element: Element, isClosed, ...rest }) {
   const isLoggedIn = false; // Substitua pela lógica real de autenticação
   const location = useLocation();
 
@@ -16,7 +16,7 @@ export default function MyRoute({ element: Element, isClosed, ...rest }) {
     );
   }
 
-  return <Route {...rest} element={<Element />} />;
+  return <Route {...rest} element={Element} />;
 }
 
 MyRoute.defaultProps = {
@@ -27,3 +27,5 @@ MyRoute.propTypes = {
   element: PropTypes.oneOfType([PropTypes.element, PropTypes.func]).isRequired,
   isClosed: PropTypes.bool,
 };
+
+export default MyRoute;
