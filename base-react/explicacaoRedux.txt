@@ -3,3 +3,4 @@
 }
 
 -> ação -> reducer -> newState = state -> newState (estado global)
+-> ação (request) -> saga -> reducer -> success ou fail
