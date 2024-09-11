@@ -10,7 +10,7 @@ const router = new (0, _express.Router)();
 // router.get('/:id', userController.show); // Lista usuário
 
 // Função real
-router.post('/',_loginRequired2.default, _user2.default.store);
+router.post('/',_user2.default.store);
 router.put('/:id', _loginRequired2.default, _user2.default.update);
 router.delete('/:id', _loginRequired2.default, _user2.default.delete);
 
