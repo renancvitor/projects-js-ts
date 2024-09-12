@@ -1,9 +1,11 @@
 import React from 'react';
 import { Route, Navigate, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 function MyRoute({ element: Element, isClosed, ...rest }) {
-  const isLoggedIn = false; // Substitua pela lógica real de autenticação
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn); // Substitua pela lógica real de autenticação
+
   const location = useLocation();
 
   if (isClosed && !isLoggedIn) {
