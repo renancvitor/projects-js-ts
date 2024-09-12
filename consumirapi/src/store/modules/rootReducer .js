@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import exampleReducer from './example/reducer'; // Importar todos os reducers
+import auth from './auth/reducer'; // Importar todos os reducers
 
 const rootReducer = combineReducers({
-  example: exampleReducer,
+  auth,
   // outros reducers
 });
 
