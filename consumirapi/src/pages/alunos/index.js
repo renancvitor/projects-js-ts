@@ -38,6 +38,10 @@ export default function Alunos() {
             <span>{aluno.nome}</span>
             <span>{aluno.email}</span>
 
+            <Link to={'/aluno/${aluno.id}/edit'}>
+              <FaEdit  size={10} />
+            </Link>
+
             <Link to={'/aluno/${aluno.id}/delete'}>
               <FaWindowClose  size={10} />
             </Link>
