@@ -32,7 +32,46 @@ function persistRehydrate({ payload }) {
 
 function registerRequest({ payload }) {
   const { id, nome, email, password } = payload;
-  console.log();
+
+  try {
+    if(id) {
+      yield call(axios.put, '/users', {
+        email,
+        nome,
+        password: password || undefined,
+      });
+      toast.success('Conta alterada com sucesso');
+      yield put(actions.registerUpdateSuccess({ nome, email, password }));
+    } else {
+      yield call(axios.put, '/users', {
+        email,
+        nome,
+        password,
+      });
+      toast.success('Conta criada com sucesso');
+      yield put(actions.registerCreatedSuccess({ nome, email, password }));
+    }
+
+  } catch(e) {
+    const errors = get(e, 'response.data.error', []);
+    const status = get(e, 'responde.status', 0);
+
+    if(status === 401) {
+      toast.error('Você precisa fazr login novamente');
+
+      yield put(actions.loginFailure());
+    }
+
+    if (errors.length > 0) {
+      errors.map(error => toast.error(e));
+    } else {
+      toast.error('Erro desconhecido');
+    }
+
+    return yield put(actions.registerFailure);
+  }
+
+  return 1;
 }
 
 export default function* rootSaga() {
