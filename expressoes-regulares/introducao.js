@@ -6,3 +6,5 @@
 const { texto } = require('./base');
 
 const regExp1 = /(João|Luiz)(, conhecido como Gordo)/gi;
+
+const found = regExp1.exec(texto);
