@@ -4,11 +4,10 @@
       "target": "es5",
       "lib": ["ESNext", "DOM"],
       "esModuleInterop": true,
-      "outDir": "./dist",
+      "outDir": "./dist/assets/js",
       "strict": true,
       "skipLibCheck": true
     },
     "include": ["./src"],
     "exclude": ["node_modules"]
   }
-  
