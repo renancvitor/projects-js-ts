@@ -1,10 +1,10 @@
 {
     "compilerOptions": {
-      "module": "CommonJS",      // Para Node.js usar CommonJS
+      "module": "CommonJS",
       "target": "es5",
       "lib": ["ESNext", "DOM"],
       "esModuleInterop": true,
-      "outDir": "./dist",
+      "outDir": "./frontend/assets/js",
       "strict": true,
       "skipLibCheck": true
     },
