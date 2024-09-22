@@ -6,7 +6,7 @@ describe('Primitive values', () => {
     expect(number).toEqual(10);
 
     expect(number).not.toBeFalsy();
-    expect(null).toBeTruthy();
+    expect(null).not.toBeTruthy();
 
     expect(number).toBeGreaterThan(9);
   });
