@@ -6,6 +6,11 @@
     "plugin:react/recommended",
     "plugin:react-hooks/recommended"
   ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "rules": {
     "no-console": "warn", // Exemplo: alerta sobre console.log
     "react/react-in-jsx-scope": "off", // Exemplo: desativa a regra de importar React em arquivos JSX
