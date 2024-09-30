@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "authorss",
+  "info": {
+    "singularName": "authors",
+    "pluralName": "authorss",
+    "displayName": "authors"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "posts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::posts.posts",
+      "mappedBy": "author"
+    }
+  }
+}

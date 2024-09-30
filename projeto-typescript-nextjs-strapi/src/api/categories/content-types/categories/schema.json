@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "categoriess",
+  "info": {
+    "singularName": "categories",
+    "pluralName": "categoriess",
+    "displayName": "categories"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "posts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::posts.posts",
+      "mappedBy": "category"
+    }
+  }
+}
