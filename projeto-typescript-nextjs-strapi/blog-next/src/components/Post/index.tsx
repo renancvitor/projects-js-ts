@@ -4,6 +4,7 @@ import { MainContainer } from "@/components/MainContainer";
 import { PostData } from "@/domain/posts/post"
 import { Heading } from "../Heading";
 import { PostCover } from "../PostCover";
+import { PostDetails } from "../PostDetails";
 
 export type PostProps = {
   post: PostData;
@@ -17,6 +18,7 @@ export const Post = ({ post }: PostProps) => {
       <MainContainer>
         <Heading>{post.title}</Heading>
         <PostCover coverUrl={post.cover.formats.large.url} alt={post.title} />
+        <PostDetails author={post.author.name} category={post.category.name} date={post.created_at} />
         <div dangerouslySetInnerHTML={{ __html: post.content }} />
       </MainContainer>
       <Footer />
