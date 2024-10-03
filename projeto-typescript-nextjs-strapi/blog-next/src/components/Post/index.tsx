@@ -5,6 +5,7 @@ import { PostData } from "@/domain/posts/post"
 import { Heading } from "../Heading";
 import { PostCover } from "../PostCover";
 import { PostDetails } from "../PostDetails";
+import { PostContainer } from "../PostContainer";
 
 export type PostProps = {
   post: PostData;
@@ -19,7 +20,7 @@ export const Post = ({ post }: PostProps) => {
         <Heading>{post.title}</Heading>
         <PostCover coverUrl={post.cover.formats.large.url} alt={post.title} />
         <PostDetails author={post.author.name} category={post.category.name} date={post.created_at} />
-        <div dangerouslySetInnerHTML={{ __html: post.content }} />
+        <PostContainer content={post.content} />
       </MainContainer>
       <Footer />
     </>
