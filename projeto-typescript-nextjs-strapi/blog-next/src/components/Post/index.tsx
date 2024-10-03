@@ -6,6 +6,7 @@ import { Heading } from "../Heading";
 import { PostCover } from "../PostCover";
 import { PostDetails } from "../PostDetails";
 import { PostContainer } from "../PostContainer";
+import { Comments } from "@/app/Comments";
 
 export type PostProps = {
   post: PostData;
@@ -21,6 +22,7 @@ export const Post = ({ post }: PostProps) => {
         <PostCover coverUrl={post.cover.formats.large.url} alt={post.title} />
         <PostDetails author={post.author.name} category={post.category.name} date={post.created_at} />
         <PostContainer content={post.content} />
+        <Comments title={post.title} slug={post.slug} />
       </MainContainer>
       <Footer />
     </>
