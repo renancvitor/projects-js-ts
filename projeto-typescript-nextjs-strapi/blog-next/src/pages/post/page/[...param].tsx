@@ -1,14 +1,18 @@
 import HomePage from "@/containers/HomePage";
+import { countAllPosts } from "@/data/posts/count-all-posts";
 import { getAllPosts } from "@/data/posts/get-all-posts";
+import { PaginationData } from "@/domain/posts/pagination";
 import { PostData } from "@/domain/posts/post";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
 
 export type PageProps = {
   posts: PostData[];
+  pagination: PaginationData;
+  category?: string;
 };
 
-export default function Page({ posts }: PageProps) {
+export default function Page({ posts, category, pagination }: PageProps) {
   const router = useRouter();
 
   if (router.isFallback) return <div>Carregando...</div>;
@@ -24,11 +28,30 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getAllPosts('_sort=id:desc&_start=0&_limit=30');
+export const getStaticProps: GetStaticProps = async (ctx) => {
+  const page = Number(ctx.params?.param?.[0]);
+  const category = ctx.params?.param?.[1] || '';
+  const postsPerPage = 3;
+  const startFrom = (page - 1) * postsPerPage;
+
+  const nextPage = page + 1;
+  const previousPage = page - 1;
+
+  const categoryQuery = category ? `&category.name_contains=${category}` : '';
+  const urlQuery = `_sort=id:desc&_start=${startFrom}&_limit=${postsPerPage}${categoryQuery}`;
+  const posts = await getAllPosts(urlQuery);
+
+  const numberOfPosts = Number(await countAllPosts(categoryQuery));
+  const pagination: PaginationData = {
+    nextPage,
+    numberOfPosts,
+    postsPerPage,
+    previousPage,
+    category,
+  };
 
   return {
-    props: { posts },
-    // revalidate: 5,
+    props: { posts, pagination, category },
+    revalidate: 600,
   };
 };
