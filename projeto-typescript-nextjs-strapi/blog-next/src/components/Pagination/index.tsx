@@ -4,7 +4,13 @@ import Link from "next/link";
 
 export type PaginationProps = PaginationData;
 
-export const Pagination = ({ nextPage, numberOfPosts, category, previousPage, postsPerPage}: PaginationData) => {
+export const Pagination = ({
+  nextPage = 1,
+  numberOfPosts = 0,
+  category = '',
+  previousPage = 1,
+  postsPerPage = 6,
+}: PaginationData) => {
   const categoryName = category || '';
   const nextLink = `/post/page/${nextPage}/${categoryName}`;
   const previousLink = `/post/page/${previousPage}/${categoryName}`;
