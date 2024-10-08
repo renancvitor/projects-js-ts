@@ -5,6 +5,7 @@ import { PaginationData } from "@/domain/posts/pagination";
 import { PostData } from "@/domain/posts/post";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
+import React from "react";
 
 export type PageProps = {
   posts: PostData[];

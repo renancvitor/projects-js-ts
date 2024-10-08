@@ -1,6 +1,7 @@
 import { PaginationData } from "@/domain/posts/pagination";
 import { Container, NextLink, PreviousLink } from "./styled"
 import Link from "next/link";
+import React from "react";
 
 export type PaginationProps = PaginationData;
 

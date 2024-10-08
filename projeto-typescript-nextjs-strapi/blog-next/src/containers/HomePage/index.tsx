@@ -9,6 +9,7 @@ import { SITE_NAME } from '@/config/app-config';
 import { PaginationData } from '@/domain/posts/pagination';
 import { Pagination } from '@/components/Pagination';
 import Link from 'next/link';
+import React from 'react';
 
 export type HomePageProps = {
   posts: PostData[];

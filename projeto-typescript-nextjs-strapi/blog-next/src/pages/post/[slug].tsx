@@ -6,6 +6,7 @@ import { PostData } from "@/domain/posts/post";
 import { useRouter } from "next/router";
 import { GetStaticPaths, GetStaticProps } from "next/types";
 import Error from 'next/error';
+import React from "react";
 
 export type DynamicPostProps = {
   post: PostData

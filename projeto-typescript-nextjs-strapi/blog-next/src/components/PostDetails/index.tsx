@@ -2,6 +2,7 @@ import { formatDate } from "@/utils/format-date";
 import { Container } from "./styled";
 import { Date } from "../Date";
 import Link from "next/link";
+import React from "react";
 
 export type PostDetailsProps = {
   date: string;
