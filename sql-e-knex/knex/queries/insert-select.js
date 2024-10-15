@@ -3,7 +3,7 @@ const knex = require('../../knex/config/database');
 const insert = knex(
     knex.raw(
         '?? (??, ??, ??)',
-        ['profiles2', 'bio', 'description', 'user_id']
+        ['profiles2', 'bio', 'description', 'user2_id']
     )
 ).insert((qb) => {
     qb.from('users2').select(
