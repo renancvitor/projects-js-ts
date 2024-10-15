@@ -20,6 +20,6 @@ exports.up = function(knex) {
    * @returns { Promise<void> }
    */
   exports.down = function(knex) {
-    return knex.schema.dropTable('users2');
+    return knex.schema.dropTable('profiles2');
   };
   
