@@ -49,8 +49,8 @@ Este repositório contém os exercícios, projetos e anotações desenvolvidos d
 
 ---
 
-## 📄 Aviso
+## 📄 Aviso Legal
 
 Este repositório tem fins exclusivamente educacionais.  
-Todo o conteúdo foi desenvolvido com base no curso Formação Desenvolvedor Java, da plataforma [Udemy](https://www.udemy.com/).
+Todo o conteúdo foi desenvolvido com base no curso **Javascript e TypeScript - front-end e back-end (Full Stack) - Node, Express, noSQL, React, hooks, Redux, Design Patterns** [Udemy](https://www.udemy.com/).
 Os direitos sobre o conteúdo do curso pertencem aos seus respectivos autores.
